@@ -496,8 +496,7 @@ header nav .form i {
 
 .portfolio {
     position: relative;
-    padding-top: var(--section-Padding);
-    background-color: var(--secondary-color);
+    padding: var(--section-Padding);
     background-image: url(/Image/All\ season.jpg);
     background-size: cover;
     background-position: center;
@@ -521,7 +520,8 @@ header nav .form i {
 
 .portfolio .shuffle li {
     z-index: 2;
-    padding: 10px;
+    padding: 8px 15px;   
+    margin-right: 5px;
     color: white;
     font-size: larger;
 }
@@ -540,86 +540,118 @@ header nav .form i {
     border-radius: 5px;
 }
 
-.portfolio .imgs-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 60px;
-}
 
-.portfolio .imgs-container .box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0 0 0 / 30%);
+.portfolio .imgs-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; 
+    margin-top: 20px;
 }
 
 .portfolio .imgs-container .box {
-    overflow: hidden;
     position: relative;
-    padding-left: 5px;
-    padding-right: 5px;
+    overflow: hidden;
 }
 
-.portfolio .imgs-container .box:hover .caption {
-    bottom: 0;
-}
-
-.portfolio .imgs-container .box:hover img {
-    transform: scale(1.1);
-    transition: .5s;
-}
-
-@media (min-width: 768px) {
-    .portfolio .imgs-container .box {
-        flex-basis: 50%;
-    }
-}
-
-@media (min-width: 1199px) {
-    .portfolio .imgs-container .box {
-        flex-basis: 25%;
-    }
-}
-
-.portfolio .imgs-container .box img{
-    max-width: 100%;
-    padding-bottom: 7px;
+.portfolio .imgs-container .box img {
+    width: 100%;
+    display: block;
+    filter: brightness(70%);
+    border-radius: 5px;
 }
 
 .portfolio .imgs-container .box .caption {
     position: absolute;
+    bottom: 0;
     left: 0;
-    padding: 20px;
-    background-color: white;
     width: 100%;
-    transition: 0.3s;
-    bottom:-100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.portfolio .imgs-container .box .caption h4 {
-    font-weight: balder;
-    margin-bottom: 10px;
-    color: var(--primary-color);
+.portfolio .imgs-container .box:hover .caption , .portfolio .imgs-container .box:hover img{
+    opacity: 1; 
+    filter: brightness(100%);
+    transition: .5s;
+    transform: scale(1.1);
 }
 
-.portfolio .imgs-container .box .caption p {
-    color: black
+@media (max-width: 1200px) {
+    .portfolio .imgs-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio .imgs-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio .imgs-container {
+        grid-template-columns: 1fr; 
+    }
 }
 
 .portfolio .more {
     position: relative;
     background-color: var(--primary-color);
     color: white;
-    padding: 15px 20px;
+    padding: 15px;
     display: block;
     width: fit-content;
-    margin: 30px auto;
-    margin-bottom: 0px;
+    text-align: center;
+    margin: 0 auto;
     text-decoration: none;  
     text-transform: uppercase;
     border-radius: 10px;
     z-index: 2;
+    margin-top: 18px;
 }
+
+/** End Portfolio **/
+
+/*!===================================================================================!*/
+
+/** Start About **/
+
+.about {
+    padding-top: var(--section-Padding);
+    background-image: url(/Image/1.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+
+.about img {
+    position: relative;
+    bottom: -120px;
+    margin-top: -120px;
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .about img {
+        bottom: -60px;
+        margin-top: -60px;
+    }
+}
+
+/** End About **/
